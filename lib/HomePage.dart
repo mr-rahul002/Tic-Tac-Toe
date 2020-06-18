@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -13,10 +14,6 @@ class _HomePageState extends State<HomePage> {
   int filledBoxes = 0;
   var myTextStyle = TextStyle(color: Colors.white, fontSize: 20);
 
-  static var myNewFont = GoogleFonts.pressStart2p(
-      textStyle:
-          TextStyle(color: Colors.black, letterSpacing: 3, fontSize: 15));
-
   static var myNewFontWhite = GoogleFonts.pressStart2p(
       textStyle: TextStyle(color: Colors.white, letterSpacing: 3));
 
@@ -26,14 +23,16 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: Colors.grey[800],
       body: Column(
         children: <Widget>[
-          SizedBox(height:5),
+          SizedBox(height: 10),
           Expanded(
               child: Container(
                   child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+              
               Padding(
                 padding: const EdgeInsets.all(30.0),
+                
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
@@ -41,7 +40,7 @@ class _HomePageState extends State<HomePage> {
                       "PLAYER A",
                       style: myNewFontWhite,
                     ),
-                    SizedBox(height:20),
+                    SizedBox(height: 20),
                     Text(ohScore.toString(), style: myNewFontWhite),
                   ],
                 ),
@@ -55,14 +54,29 @@ class _HomePageState extends State<HomePage> {
                       "PLAYER B",
                       style: myNewFontWhite,
                     ),
-                    SizedBox(height:20),
+                    SizedBox(height: 20),
                     Text(exScore.toString(), style: myNewFontWhite),
                   ],
                 ),
+                
               ),
+             
             ],
-          ))),
+          ),
+          
+          ),
+          ),
+           Padding(
+             padding: const EdgeInsets.only(left: 300),
+             child: Container(
+               child: FloatingActionButton(
+                   onPressed: _clearBoard,
+                   child: Icon(Icons.replay),
+                   backgroundColor: Colors.grey[700]),
+             ),
+           ),
           Expanded(
+            
             flex: 3,
             child: GridView.builder(
               itemCount: 9,
@@ -75,19 +89,29 @@ class _HomePageState extends State<HomePage> {
                   },
                   child: Container(
                       decoration: BoxDecoration(
+                      
                           border: Border.all(
                         color: Colors.grey[700],
                       )),
                       child: Center(
-                          child: Text(displayExOh[index],
-                              style:myNewFontWhite))),
+                          child:
+                              Text(displayExOh[index], style: myNewFontWhite))),
                 );
               },
             ),
           ),
-          Expanded(
-              child:
-                  Container(child: Text("TIC TAC TOE", style: myNewFontWhite))),
+          
+         
+              Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                        child: Center(
+                          child: Text("TIC TAC TOE",
+                              style: myNewFontWhite),
+                        )),
+                  )),
+                    
         ],
       ),
     );
@@ -222,4 +246,5 @@ class _HomePageState extends State<HomePage> {
       filledBoxes = 0;
     });
   }
+  
 }
