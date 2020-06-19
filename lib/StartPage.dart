@@ -1,4 +1,7 @@
-import 'package:Tic_Tac_toe/HomePage.dart';
+
+
+import 'package:Tic_Tac_toe/Players.dart';
+
 import 'package:avatar_glow/avatar_glow.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -68,7 +71,7 @@ class _StartPageState extends State<StartPage> {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => HomePage()),
+                    MaterialPageRoute(builder: (context) => Players()),
                   );
                 },
                 child: Padding(
