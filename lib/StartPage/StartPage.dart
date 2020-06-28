@@ -1,7 +1,4 @@
-
-
-import 'package:Tic_Tac_toe/Players.dart';
-
+import 'package:Tic_Tac_toe/LoginScreen/SignIn.dart';
 import 'package:avatar_glow/avatar_glow.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -16,7 +13,7 @@ class _StartPageState extends State<StartPage> {
       textStyle: TextStyle(color: Colors.black, letterSpacing: 3));
   var myNewFontWhite = GoogleFonts.mcLaren(
       textStyle: TextStyle(color: Colors.white, letterSpacing: 3));
-
+  PageController pageController = PageController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,30 +64,13 @@ class _StartPageState extends State<StartPage> {
                   ),
                 ),
               ),
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => Players()),
-                  );
-                },
-                child: Padding(
-                  padding: EdgeInsets.only(left: 40, right: 40, bottom: 60),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(20),
-                    child: Container(
-                      padding: EdgeInsets.all(30),
-                      color: Colors.white,
-                      child: Center(
-                        child: Text(
-                          'PLAY GAME',
-                          style: myNewFont.copyWith(fontSize: 20,),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+              Expanded(
+                  child: PageView(
+                controller: pageController,
+                children: <Widget>[
+                  SignIn(),
+                ],
+              )),
             ],
           ),
         ));
