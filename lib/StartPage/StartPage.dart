@@ -14,6 +14,7 @@ class _StartPageState extends State<StartPage> {
   var myNewFontWhite = GoogleFonts.mcLaren(
       textStyle: TextStyle(color: Colors.white, letterSpacing: 3));
   PageController pageController = PageController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

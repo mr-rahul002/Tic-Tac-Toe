@@ -3,10 +3,14 @@ import 'package:Tic_Tac_toe/Players/Friends/Friends.dart';
 import 'package:Tic_Tac_toe/Players/MultiPlayer/MultiPlayer.dart';
 import 'package:Tic_Tac_toe/Players/PlayWithBot/PlayWithBot.dart';
 import 'package:Tic_Tac_toe/StartPage/StartPage.dart';
+import 'package:Tic_Tac_toe/storage.dart';
 import 'package:avatar_glow/avatar_glow.dart';
+import 'package:provider/provider.dart';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import '../LoginScreen/GoogleSignIn.dart';
 
 class Players extends StatefulWidget {
   @override
@@ -21,6 +25,7 @@ class _PlayersState extends State<Players> {
 
   @override
   Widget build(BuildContext context) {
+    var _storage = context.watch<Storage>();
     return Scaffold(
       backgroundColor: Colors.grey[900],
       body: Column(
@@ -30,18 +35,11 @@ class _PlayersState extends State<Players> {
             padding: const EdgeInsets.all(20.0),
             child: Row(
               children: <Widget>[
-                CircleAvatar(
-                  backgroundImage: NetworkImage(
-                    imageUrl,
-                  ),
-                  radius: 25,
-                  backgroundColor: Colors.transparent,
-                ),
                 SizedBox(
                   width: 15,
                 ),
                 Text(
-                  name,
+                  _storage.name,
                   style: TextStyle(
                       fontSize: 25,
                       color: Colors.white,

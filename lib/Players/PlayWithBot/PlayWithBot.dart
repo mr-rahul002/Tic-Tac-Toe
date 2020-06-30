@@ -1,9 +1,10 @@
 import 'dart:math';
 
-import 'package:Tic_Tac_toe/LoginScreen/GoogleSignIn.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
+import '../../storage.dart';
 import 'DisplayExOh.dart';
 
 class PlayWithBot extends StatefulWidget {
@@ -52,6 +53,7 @@ class _PlayWithBotState extends State<PlayWithBot> {
 
   @override
   Widget build(BuildContext context) {
+    var _storage = context.watch<Storage>();
     return WillPopScope(
       onWillPop: _onBackPressed,
       child: Scaffold(
@@ -70,7 +72,7 @@ class _PlayWithBotState extends State<PlayWithBot> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           Text(
-                            name,
+                            _storage.name,
                             style: myNewFontWhite,
                           ),
                           SizedBox(height: 20),

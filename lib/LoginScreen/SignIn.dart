@@ -22,16 +22,16 @@ class _SignInState extends State<SignIn> {
             children: <Widget>[
               OutlineButton(
                 splashColor: Colors.grey,
-                onPressed: () {
-                  signInWithGoogle().whenComplete(() {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return Players();
-                        },
-                      ),
-                    );
-                  });
+                onPressed: () async {
+                  await signInWithGoogle();
+
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return Players();
+                      },
+                    ),
+                  );
                 },
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(40)),

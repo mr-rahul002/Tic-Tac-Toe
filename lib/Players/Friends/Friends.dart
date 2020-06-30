@@ -1,7 +1,9 @@
-import 'package:Tic_Tac_toe/LoginScreen/GoogleSignIn.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+
+import '../../storage.dart';
 
 class Friends extends StatefulWidget {
   @override
@@ -29,6 +31,7 @@ class _FriendsState extends State<Friends> {
       textStyle: TextStyle(color: Colors.white, letterSpacing: 3));
   @override
   Widget build(BuildContext context) {
+    var _storage = context.watch<Storage>();
     return WillPopScope(
       onWillPop: _onBackPressed,
       child: Scaffold(
@@ -47,7 +50,7 @@ class _FriendsState extends State<Friends> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           Text(
-                            name,
+                            _storage.name,
                             style: myNewFontWhite,
                           ),
                           SizedBox(height: 20),
